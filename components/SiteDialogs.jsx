@@ -23,7 +23,7 @@ export default function SiteDialogs() {
         <h2 id="policytitle"></h2>
         <p>
           {
-            "This is a website preview. Final legal terms and privacy disclosures will be added before public launch. The application currently stays in your browser\u2019s memory and is not sent to a server."
+            "This is a website preview. Final legal terms and privacy disclosures will be added before public launch. Completed applications are sent to ScaleMatrix AI by email through Resend."
           }
         </p>
       </dialog>

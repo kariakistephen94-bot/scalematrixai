@@ -1,3 +1,5 @@
+import CalendlyBooking from "./CalendlyBooking";
+
 export default function Application() {
   return (
     <section className="application wrap" id="application">
@@ -38,6 +40,12 @@ export default function Application() {
             3<b>Book a call</b>
           </span>
         </div>
+        <p
+          id="application-status"
+          className="application-status"
+          role="status"
+          aria-live="polite"
+        ></p>
         <form id="apply">
           <div className="formstep" data-step="0">
             <span className="formkicker">STEP 01 OF 03</span>
@@ -88,9 +96,8 @@ export default function Application() {
               <span>→</span>
             </button>
             <small className="formprivacy">
-              {
-                "\u2311 Your information stays in this preview. Nothing is submitted."
-              }
+              Your details will be emailed to ScaleMatrix AI when you complete
+              the business step.
             </small>
           </div>
           <div className="formstep" data-step="1" hidden>
@@ -129,16 +136,7 @@ export default function Application() {
             <span className="formkicker">STEP 03 OF 03</span>
             <h3>Your strategy call.</h3>
             <p id="greeting"></p>
-            <div className="calendarplaceholder">
-              <span>▣</span>
-              <h4>Calendar integration ready</h4>
-              <p>
-                {
-                  "Your Cal.com or Calendly booking widget will appear here once connected."
-                }
-              </p>
-              <small>Preview only · No appointment has been booked.</small>
-            </div>
+            <CalendlyBooking />
             <button className="back" type="button">
               ← Back to your business
             </button>

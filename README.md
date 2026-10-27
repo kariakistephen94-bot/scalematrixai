@@ -31,4 +31,18 @@ Open http://127.0.0.1:3000.
 
 ## Preview integrations
 
-Video playback, scheduling, and legal content are placeholders. Application data stays in browser memory and is not submitted.
+Video playback and legal content are placeholders. Booking is embedded with Calendly at https://calendly.com/kariakistephen/30min. Completed applications are sent through the server-side Resend API route.
+
+## Application emails (Resend)
+
+Copy `.env.example` to `.env.local`. Set `RESEND_API_KEY`, `RESEND_FROM_EMAIL` (a verified sender), and `APPLICATION_TO_EMAIL` (your receiving inbox). Restart the development server after changing environment variables. These values are server-only; do not prefix them with `NEXT_PUBLIC_`.
+
+The business step submits all six fields to `POST /api/applications`. Booking is shown only after Resend accepts the email. Errors preserve the form for retry. The applicant address is set as Reply-To. No confirmation email is sent to the applicant. Identical submissions within an hour share a Resend idempotency key. Live delivery requires your Resend configuration.
+
+## Embedded booking
+
+`components/CalendlyBooking.jsx` loads the official Calendly inline widget only when an application reaches the booking step. Visitors select a time and confirm on the same page. The application expands to fit the calendar, with a taller mobile layout. An optional external link is available if a browser blocks the widget. Booking confirmation is shown only after a Calendly event from the embedded iframe. This UI confirmation is not a server-side booking record or webhook integration.
+
+## Local and production form origins
+
+`ALLOWED_ORIGINS` is a server-only, comma-separated list in `.env.local`. It includes localhost:3000, 127.0.0.1:3000, and the HTTP/HTTPS versions of scalematrixai.com and www.scalematrixai.com. Copy the same variable into your production host's environment configuration and restart or redeploy that server for it to take effect. Origin matching remains exact; unrelated domains are not permitted.
