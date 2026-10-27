@@ -8,7 +8,7 @@ export default function HowItWorks() {
         <span>Outbound System</span>
       </h2>
       <p className="sectionintro">
-        We build the engine. You show up for the walkthrough.
+        We build the engine. You show up for the conversation.
       </p>
       <div className="steps">
         <article>
@@ -17,18 +17,17 @@ export default function HowItWorks() {
             <small>01 / SOURCE</small>
           </div>
           <h3>
-            Hyper-Targeted
-            <br />
+            Hyper-Targeted <br />
             Sourcing
           </h3>
           <p>
             {
-              "We source facility and office managers in your specific territory. The right buildings. The right people. Your ideal contracts."
+              "We find decision-makers who match your ideal customer profile, industry, and market. The right companies. The right people. Your next opportunities."
             }
           </p>
           <div className="steptag">
             <i></i>
-            Your territory, precisely mapped
+            Your ideal customers, precisely mapped
           </div>
         </article>
         <article>
@@ -37,8 +36,7 @@ export default function HowItWorks() {
             <small>02 / CONNECT</small>
           </div>
           <h3>
-            AI Personalization
-            <br />
+            AI Personalization <br />
             Engine
           </h3>
           <p>
@@ -57,13 +55,12 @@ export default function HowItWorks() {
             <small>03 / BOOK</small>
           </div>
           <h3>
-            Instant Inbound
-            <br />
+            Instant Inbound <br />
             Booking
           </h3>
           <p>
             {
-              "AI handles replies and places booked walkthroughs straight into your Google or Outlook calendar. Your next step: show up."
+              "AI handles replies and places booked meetings straight into your Google or Outlook calendar. Your next step: show up."
             }
           </p>
           <div className="steptag">

@@ -9,12 +9,16 @@ const BOOKING_URL =
 export default function CalendlyBooking() {
   const container = useRef(null);
   const [active, setActive] = useState(false);
+  const [prefill, setPrefill] = useState({});
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [booked, setBooked] = useState(false);
 
   useEffect(() => {
-    const activate = () => setActive(true);
+    const activate = (event) => {
+      setPrefill(event.detail || {});
+      setActive(true);
+    };
     window.addEventListener("scalematrix:booking", activate);
     return () => window.removeEventListener("scalematrix:booking", activate);
   }, []);
@@ -22,7 +26,12 @@ export default function CalendlyBooking() {
   useEffect(() => {
     if (!active || !ready || !container.current || !window.Calendly) return;
     const parentElement = container.current;
-    window.Calendly.initInlineWidget({ url: BOOKING_URL, parentElement });
+    window.Calendly.initInlineWidget({
+      url: BOOKING_URL,
+      parentElement,
+      prefill,
+      resize: true,
+    });
 
     const handleBooking = (event) => {
       const iframe = parentElement.querySelector("iframe");
@@ -40,7 +49,7 @@ export default function CalendlyBooking() {
       window.removeEventListener("message", handleBooking);
       parentElement.replaceChildren();
     };
-  }, [active, ready]);
+  }, [active, ready, prefill]);
 
   return (
     <div className="calendly-booking">

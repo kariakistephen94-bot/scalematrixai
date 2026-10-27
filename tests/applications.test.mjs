@@ -7,8 +7,6 @@ const data = {
   email: "alex@example.com",
   phone: "5551234567",
   company: "Test Cleaning",
-  revenue: "Under $10,000",
-  market: "Commercial",
 };
 const request = (body, origin = "http://localhost:3000") =>
   new Request("http://localhost:3000/api/applications", {
@@ -41,10 +39,7 @@ test("application email validation and provider handling", async (t) => {
     (await POST(request({ ...data, email: "invalid" }))).status,
     400,
   );
-  assert.equal(
-    (await POST(request({ ...data, revenue: "invalid" }))).status,
-    400,
-  );
+  assert.equal((await POST(request({ ...data, company: "" }))).status, 400);
   assert.equal((await POST(request(null))).status, 400);
   for (const key of keys) delete process.env[key];
   assert.equal((await POST(request(data))).status, 503);
@@ -64,6 +59,18 @@ test("application email validation and provider handling", async (t) => {
     return Response.json({ id: "mock-email" });
   };
   assert.equal((await POST(request(data))).status, 200);
+  assert.equal((await POST(request(data))).status, 200);
+  delete process.env.RESEND_FROM_EMAIL;
+  delete process.env.APPLICATION_TO_EMAIL;
+  globalThis.fetch = async (url, options) => {
+    const payload = JSON.parse(options.body);
+    assert.equal(
+      payload.from,
+      "ScaleMatrix AI <applications@scalematrixai.com>",
+    );
+    assert.deepEqual(payload.to, ["stephen@scalematrixai.com"]);
+    return Response.json({ id: "fallback-config-email" });
+  };
   assert.equal((await POST(request(data))).status, 200);
   globalThis.fetch = async () =>
     Response.json({ message: "private provider diagnostic" }, { status: 403 });

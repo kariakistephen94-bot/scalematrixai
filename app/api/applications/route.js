@@ -1,18 +1,6 @@
 import { createHash } from "node:crypto";
 import { isApplicationOriginAllowed } from "../../../lib/application-origin.js";
 
-const revenues = [
-  "Under $10,000",
-  "$10,000–$30,000",
-  "$30,000–$75,000",
-  "$75,000–$150,000",
-  "$150,000+",
-];
-const markets = [
-  "Commercial",
-  "Residential",
-  "Both commercial and residential",
-];
 const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 
 export async function POST(request) {
@@ -36,7 +24,7 @@ export async function POST(request) {
   } catch {
     return Response.json({ error: "Invalid application." }, { status: 400 });
   }
-  const fields = ["name", "email", "phone", "company", "revenue", "market"];
+  const fields = ["name", "email", "phone", "company"];
   if (
     !data ||
     fields.some(
@@ -57,18 +45,20 @@ export async function POST(request) {
   if (
     !emailPattern.test(application.email) ||
     /[\r\n]/.test(application.email) ||
-    !revenues.includes(application.revenue) ||
-    !markets.includes(application.market) ||
     !/^[+()\d\s.\-]{7,40}$/.test(application.phone)
   ) {
     return Response.json(
-      { error: "Please check your email, phone, and business details." },
+      { error: "Please check your email and phone number." },
       { status: 400 },
     );
   }
-  const { RESEND_API_KEY, RESEND_FROM_EMAIL, APPLICATION_TO_EMAIL } =
-    process.env;
-  if (!RESEND_API_KEY || !RESEND_FROM_EMAIL || !APPLICATION_TO_EMAIL) {
+  const RESEND_API_KEY = process.env.RESEND_API_KEY?.trim();
+  const RESEND_FROM_EMAIL =
+    process.env.RESEND_FROM_EMAIL?.trim() ||
+    "ScaleMatrix AI <applications@scalematrixai.com>";
+  const APPLICATION_TO_EMAIL =
+    process.env.APPLICATION_TO_EMAIL?.trim() || "stephen@scalematrixai.com";
+  if (!RESEND_API_KEY) {
     return Response.json(
       {
         error:

@@ -1366,3 +1366,283 @@ footer .brand .wordmark {
     height: 1050px;
   }
 }
+
+/* Comfortable touch targets and a layout that fits narrow phones. */
+html,
+body {
+  max-width: 100%;
+}
+.hero:before {
+  inset-inline: 0;
+}
+.application > *,
+.formcard,
+.formstep,
+.stories > *,
+.steps > * {
+  min-width: 0;
+}
+.formprivacy {
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .wrap {
+    padding-inline: 18px;
+  }
+  nav {
+    gap: 12px;
+    height: 72px;
+  }
+  .brand {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .brand .wordmark {
+    width: clamp(140px, 42vw, 210px);
+    max-width: 100%;
+  }
+  .navright {
+    flex-shrink: 0;
+  }
+  .button.small {
+    min-height: 44px;
+    font-size: 11px;
+    gap: 9px;
+    padding: 10px 12px;
+  }
+  .hero {
+    padding-top: 30px;
+  }
+  .eyebrow {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.6;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 0.4px;
+  }
+  h1 {
+    font-size: clamp(32px, 8vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -1.3px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .benefits {
+    flex-wrap: wrap;
+    gap: 10px 15px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .primary {
+    font-size: 13px;
+    min-height: 54px;
+    padding: 16px;
+    gap: 12px;
+  }
+  .watch {
+    font-size: 10px;
+    line-height: 1.7;
+    align-items: center;
+  }
+  .watch .red {
+    flex-shrink: 0;
+  }
+  .micro {
+    font-size: 10px;
+    line-height: 1.8;
+    max-width: 100%;
+  }
+  .sectionlabel {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .sectionintro,
+  .applicationcopy > p {
+    font-size: 14px;
+  }
+  .stories article {
+    grid-template-columns: minmax(110px, 36%) minmax(0, 1fr);
+  }
+  .storycopy h3 {
+    font-size: 14px;
+  }
+  .storycopy p {
+    font-size: 11px;
+  }
+  .storycopy small {
+    font-size: 8px;
+  }
+  .stats strong {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+  .stats p {
+    font-size: 10px;
+  }
+  .resultnote {
+    font-size: 10px;
+  }
+  .steps p {
+    font-size: 14px;
+  }
+  .steptag {
+    font-size: 11px;
+  }
+  .application li {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .formcard {
+    padding: 22px 18px;
+  }
+  .formprogress {
+    margin-bottom: 25px;
+    gap: 12px;
+  }
+  .formprogress b {
+    font-size: 11px;
+  }
+  .formprogress > span {
+    font-size: 13px;
+    gap: 8px;
+  }
+  .formkicker {
+    font-size: 10px;
+  }
+  .formstep > p {
+    font-size: 13px;
+  }
+  .formstep label {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .formstep input,
+  .formstep select {
+    font-size: 16px;
+    min-height: 48px;
+    padding: 13px;
+  }
+  .formrow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .formrow label {
+    margin-top: 0;
+  }
+  .next {
+    min-height: 50px;
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+  .back {
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .formprivacy,
+  .booking-fallback {
+    font-size: 11px;
+  }
+  .booking-description,
+  .booking-loading {
+    font-size: 13px;
+  }
+  .application[data-booking="true"] .formcard {
+    padding: 20px 8px;
+  }
+  .calendly-inline-container {
+    height: 1000px;
+    border-radius: 6px;
+  }
+  footer {
+    gap: 20px;
+  }
+  .trust b {
+    font-size: 14px;
+  }
+  footer button {
+    min-height: 44px;
+    font-size: 11px;
+  }
+  footer p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .pipeline,
+  .notification,
+  .videobottom,
+  .chip {
+    display: none;
+  }
+  .videotop {
+    left: 14px;
+    right: 14px;
+    top: 12px;
+    font-size: 8px;
+  }
+  .videoheadline {
+    left: 16px;
+    top: 42px;
+    font-size: clamp(20px, 5vw, 25px);
+    line-height: 1.18;
+    letter-spacing: -0.7px;
+  }
+  .playpill {
+    left: 16px;
+    top: auto;
+    bottom: 14px;
+    font-size: 9px;
+    gap: 8px;
+  }
+  .playcircle {
+    width: 28px;
+    height: 28px;
+  }
+  .playpill small {
+    font-size: 8px;
+  }
+  .application h2 {
+    font-size: 34px;
+  }
+  .application {
+    padding-top: 38px;
+    gap: 24px;
+  }
+}
+@media (max-width: 350px) {
+  .wrap {
+    padding-inline: 14px;
+  }
+  .brand .wordmark {
+    width: 138px;
+  }
+  .button.small {
+    font-size: 10px;
+    padding-inline: 9px;
+    gap: 6px;
+  }
+  .formcard {
+    padding: 20px 14px;
+  }
+  .storycopy {
+    padding: 16px 12px;
+  }
+  .stats article {
+    padding-inline: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  header .navright {
+    display: none;
+  }
+  header nav {
+    justify-content: center;
+  }
+  header .brand {
+    justify-content: center;
+  }
+}

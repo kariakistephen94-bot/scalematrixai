@@ -35,9 +35,9 @@ Video playback and legal content are placeholders. Booking is embedded with Cale
 
 ## Application emails (Resend)
 
-Copy `.env.example` to `.env.local`. Set `RESEND_API_KEY`, `RESEND_FROM_EMAIL` (a verified sender), and `APPLICATION_TO_EMAIL` (your receiving inbox). Restart the development server after changing environment variables. These values are server-only; do not prefix them with `NEXT_PUBLIC_`.
+Copy `.env.example` to `.env.local`. Set `RESEND_API_KEY`. Optionally set `RESEND_FROM_EMAIL` (a verified sender) and `APPLICATION_TO_EMAIL` (your receiving inbox); defaults are `ScaleMatrix AI <applications@scalematrixai.com>` and `stephen@scalematrixai.com`. Restart the development server after changing environment variables. These values are server-only; do not prefix them with `NEXT_PUBLIC_`.
 
-The business step submits all six fields to `POST /api/applications`. Booking is shown only after Resend accepts the email. Errors preserve the form for retry. The applicant address is set as Reply-To. No confirmation email is sent to the applicant. Identical submissions within an hour share a Resend idempotency key. Live delivery requires your Resend configuration.
+The contact step submits four fields (name, email, phone, company) to `POST /api/applications`, then opens embedded Calendly immediately. Revenue and service-focus questions have been removed. Email delivery runs independently: a missing key, provider outage, or timeout cannot block booking. The page reports email delivery only after Resend accepts it. Calendly receives name/email prefill. The applicant address is set as Reply-To. No confirmation email is sent to the applicant. Identical submissions within an hour share a Resend idempotency key. Live delivery requires your Resend configuration.
 
 ## Embedded booking
 
@@ -46,3 +46,7 @@ The business step submits all six fields to `POST /api/applications`. Booking is
 ## Local and production form origins
 
 `ALLOWED_ORIGINS` is a server-only, comma-separated list in `.env.local`. It includes localhost:3000, 127.0.0.1:3000, and the HTTP/HTTPS versions of scalematrixai.com and www.scalematrixai.com. Copy the same variable into your production host's environment configuration and restart or redeploy that server for it to take effect. Origin matching remains exact; unrelated domains are not permitted.
+
+## Mobile and positioning
+
+The page presents ScaleMatrix AI as a lead-generation and outreach agency for growing businesses, with an outcome-led headline about qualified sales meetings. Mobile layouts support narrow phones, stacked contact inputs, readable input sizes without iOS zoom, touch-friendly buttons, and an inline Calendly calendar. Production environment variables must be configured on the production host separately from `.env.local`; this repository does not automatically deploy changes.

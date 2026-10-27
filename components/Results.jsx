@@ -3,7 +3,7 @@ export default function Results() {
     <section className="results wrap" id="results">
       <div className="sectionlabel">THE OUTCOME THAT MATTERS</div>
       <h2>
-        Real Commercial Contracts.
+        Real Sales Opportunities.
         <br />
         <span>Zero Cold Calling.</span>
       </h2>
@@ -27,7 +27,7 @@ export default function Results() {
             14
             <span>Days</span>
           </strong>
-          <p>Time To First Commercial Walkthrough</p>
+          <p>Time To First Qualified Meeting</p>
         </article>
         <article>
           <span className="statmark">✧</span>

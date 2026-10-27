@@ -2,7 +2,7 @@ import "./globals.css";
 export const metadata = {
   title: "ScaleMatrix AI — Your next growth engine.",
   description:
-    "ScaleMatrix AI builds automated outbound engines for commercial cleaning and facility management companies.",
+    "ScaleMatrix AI builds automated lead generation and personalized outreach engines that connect growing businesses with qualified prospects.",
   icons: { icon: "/favicon.svg" },
 };
 export const viewport = { themeColor: "#0a0a0c" };

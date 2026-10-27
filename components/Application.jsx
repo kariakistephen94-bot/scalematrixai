@@ -6,15 +6,15 @@ export default function Application() {
       <div className="applicationcopy">
         <div className="sectionlabel">LET’S BUILD YOUR NEXT CHAPTER</div>
         <h2>
-          Your territory.
+          Your market.
           <br />
-          Your next contracts.
+          Your next clients.
           <br />
           <span>Your AI engine.</span>
         </h2>
         <p>
           {
-            "Tell us a little about your business. We\u2019ll map out what an automated commercial pipeline could look like for you."
+            "Tell us a little about your business. We\u2019ll map out what an automated lead generation and outreach pipeline could look like for you."
           }
         </p>
         <ul>
@@ -33,11 +33,7 @@ export default function Application() {
           </span>
           <em></em>
           <span>
-            2<b>Your business</b>
-          </span>
-          <em></em>
-          <span>
-            3<b>Book a call</b>
+            2<b>Book a call</b>
           </span>
         </div>
         <p
@@ -48,13 +44,14 @@ export default function Application() {
         ></p>
         <form id="apply">
           <div className="formstep" data-step="0">
-            <span className="formkicker">STEP 01 OF 03</span>
+            <span className="formkicker">STEP 01 OF 02</span>
             <h3>Let’s get acquainted.</h3>
             <p>Your next stage of growth starts here.</p>
             <label>
               Full name
               <input
                 name="name"
+                maxLength={200}
                 autoComplete="name"
                 placeholder="Alex Johnson"
                 required
@@ -64,6 +61,7 @@ export default function Application() {
               Work email
               <input
                 name="email"
+                maxLength={200}
                 type="email"
                 autoComplete="email"
                 placeholder="alex@yourcompany.com"
@@ -75,6 +73,10 @@ export default function Application() {
                 Phone number
                 <input
                   name="phone"
+                  inputMode="tel"
+                  pattern={"[+0-9\\s\\(\\).\\-]{7,40}"}
+                  minLength={7}
+                  maxLength={40}
                   type="tel"
                   autoComplete="tel"
                   placeholder="(555) 000-0000"
@@ -85,6 +87,7 @@ export default function Application() {
                 Company name
                 <input
                   name="company"
+                  maxLength={200}
                   autoComplete="organization"
                   placeholder="Your company"
                   required
@@ -92,53 +95,21 @@ export default function Application() {
               </label>
             </div>
             <button className="button next" type="submit">
-              Continue to your business
-              <span>→</span>
-            </button>
-            <small className="formprivacy">
-              Your details will be emailed to ScaleMatrix AI when you complete
-              the business step.
-            </small>
-          </div>
-          <div className="formstep" data-step="1" hidden>
-            <span className="formkicker">STEP 02 OF 03</span>
-            <h3>A little about your business.</h3>
-            <p>Help us understand where you are today.</p>
-            <label>
-              What is your current monthly revenue?
-              <select name="revenue" required>
-                <option value="">Select monthly revenue</option>
-                <option>Under $10,000</option>
-                <option>$10,000–$30,000</option>
-                <option>$30,000–$75,000</option>
-                <option>$75,000–$150,000</option>
-                <option>$150,000+</option>
-              </select>
-            </label>
-            <label>
-              Do you handle commercial or residential?
-              <select name="market" required>
-                <option value="">Select your service focus</option>
-                <option>Commercial</option>
-                <option>Residential</option>
-                <option>Both commercial and residential</option>
-              </select>
-            </label>
-            <button className="button next" type="submit">
               Continue to booking
               <span>→</span>
             </button>
-            <button className="back" type="button">
-              ← Back
-            </button>
+            <small className="formprivacy">
+              We’ll use your details to prepare for your call. Choose a time on
+              the next step.
+            </small>
           </div>
-          <div className="formstep" data-step="2" hidden>
-            <span className="formkicker">STEP 03 OF 03</span>
+          <div className="formstep" data-step="1" hidden>
+            <span className="formkicker">STEP 02 OF 02</span>
             <h3>Your strategy call.</h3>
             <p id="greeting"></p>
             <CalendlyBooking />
             <button className="back" type="button">
-              ← Back to your business
+              ← Edit your details
             </button>
           </div>
         </form>

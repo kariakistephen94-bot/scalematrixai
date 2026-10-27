@@ -3,22 +3,20 @@ export default function Hero() {
     <section className="hero wrap">
       <div className="eyebrow">
         <span>⚡</span>
-        FOR COMMERCIAL CLEANING &amp; FACILITY MANAGEMENT COMPANIES
+        AI LEAD GENERATION &amp; OUTREACH FOR GROWING BUSINESSES
       </div>
       <h1>
-        Book 10–15 Qualified
-        <br />
-        Commercial Walkthroughs
-        <br />
+        Book 10–15 Qualified <br />
+        Sales Meetings <br />
         <span>Every Month On Autopilot.</span>
       </h1>
       <p className="lede">
         {
-          "We build fully automated AI outbound engines that secure high-value corporate"
+          "We build automated AI outbound engines that connect your business with high-value"
         }
         <br className="desktop" />
         {
-          " contracts with local office managers\u2014without hiring extra sales reps"
+          " prospects and book qualified sales conversations\u2014without hiring extra sales reps"
         }
         <br className="desktop" />
         or spending a dollar on ads.
@@ -44,7 +42,7 @@ export default function Hero() {
           </span>
         </div>
         <div className="videoheadline">
-          Your next contract.
+          Your next client.
           <br />
           <span>Already in motion.</span>
         </div>
@@ -72,8 +70,8 @@ export default function Hero() {
         <div className="notification">
           <span className="check">✓</span>
           <div>
-            <b>New walkthrough booked</b>
-            <small>Office manager · Commercial facility</small>
+            <b>New meeting booked</b>
+            <small>Decision-maker · Qualified prospect</small>
           </div>
           <span className="now">Just now</span>
         </div>
@@ -84,7 +82,7 @@ export default function Hero() {
       </button>
       <p className="watch">
         <span className="red"></span>
-        Watch: How ScaleMatrix AI Books Commercial Contracts in 14 Days
+        Watch: How ScaleMatrix AI Books Qualified Meetings in 14 Days
         <span className="muted">(4 Min)</span>
       </p>
       <a href="#application" className="button primary">
