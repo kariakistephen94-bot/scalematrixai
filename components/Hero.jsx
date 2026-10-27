@@ -16,7 +16,7 @@ export default function Hero() {
         }
         <br className="desktop" />
         {
-          " prospects and book qualified sales conversations\u2014without hiring extra sales reps"
+          " prospects and book qualified sales conversations 4without hiring extra sales reps"
         }
         <br className="desktop" />
         or spending a dollar on ads.

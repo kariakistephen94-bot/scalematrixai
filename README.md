@@ -41,7 +41,7 @@ The contact step submits four fields (name, email, phone, company) to `POST /api
 
 ## Embedded booking
 
-`components/CalendlyBooking.jsx` loads the official Calendly inline widget only when an application reaches the booking step. Visitors select a time and confirm on the same page. The application expands to fit the calendar, with a taller mobile layout. An optional external link is available if a browser blocks the widget. Booking confirmation is shown only after a Calendly event from the embedded iframe. This UI confirmation is not a server-side booking record or webhook integration.
+`components/CalendlyBooking.jsx` mounts a React-owned Calendly iframe when an application reaches the booking step. It does not depend on an external widget-loader script. `lib/booking.js` supplies the current embed domain, Inline embed mode, and encoded invitee fields. Visitors select a time and confirm on the same page. The application expands to fit the calendar, with explicit desktop and mobile heights. A Reload calendar button remounts a stalled frame. An optional external link is available if a browser blocks the widget. Booking confirmation is shown only after a Calendly event from the embedded iframe. This UI confirmation is not a server-side booking record or webhook integration.
 
 ## Local and production form origins
 

@@ -1646,3 +1646,28 @@ body {
     justify-content: center;
   }
 }
+
+.booking-help {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.booking-help .booking-fallback {
+  margin: 0;
+}
+.calendar-reload {
+  border: 1px solid #514463;
+  background: #211a2e;
+  color: #c9bbeb;
+  border-radius: 6px;
+  padding: 10px 14px;
+  min-height: 44px;
+  font-size: 12px;
+}
+.calendar-reload:hover {
+  border-color: #a394e5;
+  background: #2a203e;
+}

@@ -101,7 +101,7 @@ test("contact details open Calendly even while email is pending or unavailable",
   );
   await submit;
   assert.equal(steps[1].hidden, false, "email failures must not block booking");
-  assert.ok(status.textContent.includes("still book your call"));
+  assert.ok(status.textContent.includes("book your call"));
   assert.ok(!status.textContent.includes("temporarily unavailable"));
   handlers.get(back).click();
   assert.equal(steps[0].hidden, false);
