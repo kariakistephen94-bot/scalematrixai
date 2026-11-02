@@ -4,29 +4,41 @@ export default function Application() {
   return (
     <section className="application wrap" id="application">
       <div className="applicationcopy">
-        <div className="sectionlabel">LET’S BUILD YOUR NEXT CHAPTER</div>
-        <h2>
-          Your market.
-          <br />
-          Your next clients.
-          <br />
-          <span>Your AI engine.</span>
+        <div className="sectionlabel" data-reveal>
+          LET’S BUILD YOUR NEXT CHAPTER
+        </div>
+        <h2 data-reveal="lines">
+          <span className="ln">
+            <span className="li" style={{ "--i": 0 }}>
+              Your market.
+            </span>
+          </span>{" "}
+          <span className="ln">
+            <span className="li" style={{ "--i": 1 }}>
+              Your next clients.
+            </span>
+          </span>{" "}
+          <span className="ln">
+            <span className="li" style={{ "--i": 2 }}>
+              <em>Your AI engine.</em>
+            </span>
+          </span>
         </h2>
-        <p>
+        <p data-reveal>
           {
             "Tell us a little about your business. We\u2019ll map out what an automated lead generation and outreach pipeline could look like for you."
           }
         </p>
-        <ul>
-          <li>Custom strategy for your local market</li>
-          <li>A clear plan to launch your outbound engine</li>
-          <li>No pressure. Just a conversation about growth.</li>
+        <ul data-stagger>
+          <li data-reveal>Custom strategy for your local market</li>
+          <li data-reveal>A clear plan to launch your outbound engine</li>
+          <li data-reveal>No pressure. Just a conversation about growth.</li>
         </ul>
-        <div className="limited">
+        <div className="limited" data-reveal>
           <i></i>3 implementation spots available this month
         </div>
       </div>
-      <div className="formcard">
+      <div className="formcard" data-reveal>
         <div className="formprogress">
           <span className="active">
             1<b>Your details</b>

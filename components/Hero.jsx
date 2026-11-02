@@ -1,111 +1,65 @@
+import HeroCanvas from "./HeroCanvas";
+import Console from "./Console";
+
 export default function Hero() {
   return (
-    <section className="hero wrap">
-      <div className="eyebrow">
-        <span>⚡</span>
-        AI LEAD GENERATION &amp; OUTREACH FOR GROWING BUSINESSES
+    <section className="hero" id="top">
+      <div className="hero-bg" aria-hidden="true">
+        <div className="hero-sticky">
+          <HeroCanvas />
+          <div className="hero-vignette"></div>
+        </div>
       </div>
-      <h1>
-        Book 10–15 Qualified <br />
-        Sales Meetings <br />
-        <span>Every Month On Autopilot.</span>
-      </h1>
-      <p className="lede">
-        {
-          "We build automated AI outbound engines that connect your business with high-value"
-        }
-        <br className="desktop" />
-        {
-          " prospects and book qualified sales conversations 4without hiring extra sales reps"
-        }
-        <br className="desktop" />
-        or spending a dollar on ads.
-      </p>
-      <div className="benefits">
-        <span>✓ No cold calling</span>
-        <span>✓ No ad spend</span>
-        <span>✓ Built for your territory</span>
-      </div>
-      <button
-        className="video"
-        id="play"
-        aria-label="Open ScaleMatrix AI video preview"
-      >
-        <div className="videotop">
-          <span>
-            <span className="matrix">▦</span>
-            SCALEMATRIX AI
+      <div className="wrap hero-inner">
+        <div className="eyebrow" data-reveal>
+          <span>⚡</span>
+          AI LEAD GENERATION &amp; OUTREACH FOR GROWING BUSINESSES
+        </div>
+        <h1 data-reveal="lines">
+          <span className="ln">
+            <span className="li" style={{ "--i": 0 }}>
+              Book <span className="nb">10–15</span> Qualified
+            </span>
+          </span>{" "}
+          <span className="ln">
+            <span className="li" style={{ "--i": 1 }}>
+              Sales Meetings
+            </span>
+          </span>{" "}
+          <span className="ln">
+            <span className="li" style={{ "--i": 2 }}>
+              Every Month On <em className="shimmer">Autopilot.</em>
+            </span>
           </span>
-          <span className="chip">
-            <i></i>
-            YOUR GROWTH ENGINE, ALWAYS ON
-          </span>
+        </h1>
+        <p className="lede" data-reveal style={{ "--d": "420ms" }}>
+          We build automated AI outbound engines that connect your business with
+          high-value prospects and book qualified sales conversations without
+          hiring extra sales reps or spending a dollar on ads.
+        </p>
+        <div className="benefits" data-reveal style={{ "--d": "520ms" }}>
+          <span>✓ No cold calling</span>
+          <span>✓ No ad spend</span>
+          <span>✓ Built for your territory</span>
         </div>
-        <div className="videoheadline">
-          Your next client.
-          <br />
-          <span>Already in motion.</span>
+        <div className="cta" data-reveal style={{ "--d": "620ms" }}>
+          <a href="#application" className="button primary" data-magnetic>
+            Apply For A Custom AI Engine Build
+            <span>→</span>
+          </a>
+          <p className="micro">
+            <span className="tinygreen"></span>
+            Only 3 client spots available this month.
+            <span className="separator">|</span>
+            100% Risk-Free Guarantee.
+          </p>
         </div>
-        <div className="pipeline">
-          <div className="node">
-            <span>⌕</span>
-            <small>FIND</small>
-          </div>
-          <div className="line"></div>
-          <div className="node central">
-            <span>▦</span>
-            <small>PERSONALIZE</small>
-          </div>
-          <div className="line"></div>
-          <div className="node">
-            <span>▣</span>
-            <small>BOOK</small>
-          </div>
-        </div>
-        <span className="playpill">
-          <span className="playcircle">▶</span>
-          PLAY VIDEO
-          <small>04:00</small>
-        </span>
-        <div className="notification">
-          <span className="check">✓</span>
-          <div>
-            <b>New meeting booked</b>
-            <small>Decision-maker · Qualified prospect</small>
-          </div>
-          <span className="now">Just now</span>
-        </div>
-        <div className="videobottom">
-          <span>THE SYSTEM BEHIND YOUR NEXT STAGE OF GROWTH</span>
-          <span>01 / OVERVIEW</span>
-        </div>
-      </button>
-      <p className="watch">
-        <span className="red"></span>
-        Watch: How ScaleMatrix AI Books Qualified Meetings in 14 Days
-        <span className="muted">(4 Min)</span>
-      </p>
-      <a href="#application" className="button primary">
-        Apply For A Custom AI Engine Build
-        <span>→</span>
-      </a>
-      <p className="micro">
-        <span className="tinygreen"></span>
-        Only 3 client spots available this month.
-        <span className="separator">|</span>
-        100% Risk-Free Guarantee.
-      </p>
-      <div className="trust">
-        <span>BUILT TO WORK WITH YOUR BUSINESS</span>
-        <div>
-          <b>
-            Google
-            <span>Calendar</span>
-          </b>
-          <b className="outlook">▣ Outlook</b>
-          <b>◈ Your CRM</b>
-          <b>↗ Your next stage</b>
-        </div>
+        <Console />
+        <p className="watch" data-reveal>
+          <span className="red"></span>
+          Watch: How ScaleMatrix AI Books Qualified Meetings in 14 Days
+          <span className="muted">(4 Min)</span>
+        </p>
       </div>
     </section>
   );

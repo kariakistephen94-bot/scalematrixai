@@ -14,12 +14,18 @@ Open http://127.0.0.1:3000.
 ## Project structure
 
 - `app/page.jsx` — assembles the landing page sections.
-- `app/layout.jsx` — page metadata, fonts, and root layout.
-- `app/globals.css` — responsive styles and visual theme.
-- `components/` — header, hero, results, process, application, footer, and dialogs.
-- `components/SiteInteractions.jsx` — client-side interaction lifecycle.
+- `app/layout.jsx` — metadata, `next/font` (Inter Tight, Instrument Serif, JetBrains Mono), root layout.
+- `app/globals.css` — design tokens, reveal system, responsive styles and the reduced-motion fallback.
+- `components/` — header, hero, console, marquee, results, engine story, application, footer, dialogs.
+- `components/MotionProvider.jsx` — starts site-wide motion; `components/SiteInteractions.jsx` handles the form and dialogs.
+- `lib/motion/` — shared motion core: one rAF `ticker`, Lenis smooth scroll + scroll effects (`index.js`), canvas lifecycle (`canvas.js`), pointer/scroll state (`input.js`).
+- `lib/scenes/` — canvas scenes: `heroField` (living prospect field), `outreach` (hero film), `avatar3d` (three.js 3D character used in the film, loaded on demand), `story` (scroll-driven particle morph).
 - `lib/interactions.js` — form progression and dialog event handlers, with cleanup.
 - `public/` — logo and favicon SVG assets.
+
+## Motion
+
+Smooth scrolling uses [Lenis](https://lenis.darkroom.engineering). Canvases only render while on screen and are capped at 2x DPR. With `prefers-reduced-motion`, smooth scroll, reveals and the pinned story are disabled and the canvases draw a single still frame.
 
 ## Commands
 
