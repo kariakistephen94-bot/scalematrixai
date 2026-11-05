@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Results from "../components/Results";
 import EngineStory from "../components/EngineStory";
+import Showcase from "../components/Showcase";
+import Faq from "../components/Faq";
 import Application from "../components/Application";
 import Footer from "../components/Footer";
 import SiteDialogs from "../components/SiteDialogs";
@@ -28,6 +30,8 @@ export default function Home() {
         <Marquee />
         <Results />
         <EngineStory />
+        <Showcase />
+        <Faq />
         <Application />
       </main>
       <Footer />

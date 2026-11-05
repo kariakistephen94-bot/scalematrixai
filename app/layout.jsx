@@ -4,6 +4,14 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
+import {
+  SITE_URL,
+  SITE_NAME,
+  TITLE,
+  DESCRIPTION,
+  KEYWORDS,
+  jsonLd,
+} from "../lib/seo.js";
 
 const sans = Inter_Tight({
   subsets: ["latin"],
@@ -24,9 +32,40 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "ScaleMatrix AI — Your next growth engine.",
-  description:
-    "ScaleMatrix AI builds automated lead generation and personalized outreach engines that connect growing businesses with qualified prospects.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: `%s | ${SITE_NAME}` },
+  description: DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "business",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: SITE_NAME,
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: { icon: "/favicon.svg" },
 };
 export const viewport = { themeColor: "#07070b" };
@@ -44,7 +83,15 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: motionFlag }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

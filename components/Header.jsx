@@ -10,6 +10,8 @@ export default function Header() {
         <div className="navlinks">
           <a href="#results">Results</a>
           <a href="#system">The System</a>
+          <a href="#work">Our Work</a>
+          <a href="#faq">FAQ</a>
           <a href="#application">Apply</a>
         </div>
         <div className="navright">
